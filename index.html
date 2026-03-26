@@ -1,418 +1,402 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three Decades, One City</title>
+  <style>
+    :root {
+      --bg: #f4f0e8;
+      --text: #111111;
+      --muted: #5f5a52;
+      --rule: rgba(17, 17, 17, 0.14);
+      --accent-1995: #7e1f1f;
+      --accent-2005: #8a5a00;
+      --accent-2015: #24577a;
+      --max-width: 720px;
+      --outer-pad: clamp(20px, 4vw, 48px);
+      --section-gap: clamp(60px, 8vw, 120px);
+      --body-size: clamp(18px, 1.3vw, 21px);
+      --body-leading: 1.65;
+      --display-size: clamp(44px, 8vw, 110px);
+      --title-size: clamp(28px, 4vw, 48px);
+      --meta-size: 0.9rem;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: var(--outer-pad);
+      border-bottom: 1px solid var(--rule);
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0)),
+        var(--bg);
+    }
+
+    .hero__inner {
+      width: min(100%, 1200px);
+    }
+
+    .hero__kicker {
+      margin: 0 0 12px;
+      font: 600 0.78rem/1 var(--sans);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero__title {
+      margin: 0;
+      max-width: 12ch;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: var(--display-size);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .hero__dek {
+      margin: 22px 0 34px;
+      max-width: 28ch;
+      font-size: clamp(20px, 2vw, 30px);
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    .hero__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 600 1rem/1 var(--sans);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 4px;
+    }
+
+    .era-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 18px;
+      padding: 16px var(--outer-pad);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(14px);
+      background: rgba(244, 240, 232, 0.9);
+      font: 600 0.9rem/1 var(--sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .era-nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    .era-nav a:hover {
+      color: var(--text);
+    }
+
+    .issues {
+      padding: 0 var(--outer-pad) var(--section-gap);
+    }
+
+    .issue {
+      padding: var(--section-gap) 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .issue__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      width: min(100%, 1200px);
+      margin: 0 auto;
+    }
+
+    .issue__meta {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .issue__year {
+      margin: 0;
+      font: 700 clamp(32px, 5vw, 66px)/0.95 var(--sans);
+      letter-spacing: -0.04em;
+    }
+
+    .issue__strap {
+      margin: 0;
+      font: 500 var(--meta-size)/1.3 var(--sans);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .issue__body {
+      max-width: var(--max-width);
+      font-size: var(--body-size);
+      line-height: var(--body-leading);
+    }
+
+    .issue__body p {
+      margin: 0 0 1.2em;
+    }
+
+    .pullquote {
+      margin: 28px 0;
+      padding-left: 18px;
+      border-left: 3px solid currentColor;
+      font-family: var(--sans);
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .issue__extras {
+      display: grid;
+      gap: 16px;
+      max-width: 420px;
+      padding-top: 12px;
+      font: 500 0.98rem/1.45 var(--sans);
+    }
+
+    .issue__extras h4 {
+      margin: 0 0 6px;
+      font: 700 0.78rem/1 var(--sans);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .issue__extras p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .issue--1995 {
+      background: linear-gradient(to bottom, rgba(126, 31, 31, 0.02), rgba(126, 31, 31, 0));
+    }
+
+    .issue--1995 .issue__year,
+    .issue--1995 .pullquote,
+    .issue--1995 .issue__extras a {
+      color: var(--accent-1995);
+    }
+
+    .issue--1995 .issue__body {
+      letter-spacing: 0.002em;
+    }
+
+    .issue--2005 {
+      background: linear-gradient(to bottom, rgba(138, 90, 0, 0.035), rgba(138, 90, 0, 0));
+    }
+
+    .issue--2005 .issue__year,
+    .issue--2005 .pullquote,
+    .issue--2005 .issue__extras a {
+      color: var(--accent-2005);
+    }
+
+    .issue--2005 .issue__body {
+      font-size: clamp(18px, 1.35vw, 22px);
+    }
+
+    .issue--2015 {
+      background: linear-gradient(to bottom, rgba(36, 87, 122, 0.035), rgba(36, 87, 122, 0));
+    }
+
+    .issue--2015 .issue__year,
+    .issue--2015 .pullquote,
+    .issue--2015 .issue__extras a {
+      color: var(--accent-2015);
+    }
+
+    .issue--2015 .issue__body {
+      font-family: var(--sans);
+      font-size: clamp(17px, 1.18vw, 20px);
+      line-height: 1.75;
+    }
+
+    .footer {
+      padding: 48px var(--outer-pad) 70px;
+    }
+
+    .footer__inner {
+      width: min(100%, 1200px);
+      margin: 0 auto;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer__label {
+      font: 700 0.78rem/1 var(--sans);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .footer p {
+      margin: 0;
+      max-width: 48ch;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    @media (min-width: 900px) {
+      .issue__grid {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 48px;
+      }
+
+      .issue__meta {
+        position: sticky;
+        top: 84px;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Three Decades, One City&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg: #f4f0e8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text: #111111;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--muted: #5f5a52;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--rule: rgba(17, 17, 17, 0.14);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent-1995: #7e1f1f;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent-2005: #8a5a00;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent-2015: #24577a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--max-width: 720px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--outer-pad: clamp(20px, 4vw, 48px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--section-gap: clamp(60px, 8vw, 120px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--body-size: clamp(18px, 1.3vw, 21px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--body-leading: 1.65;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--display-size: clamp(44px, 8vw, 110px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--title-size: clamp(28px, 4vw, 48px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--meta-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>html {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--serif);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>-webkit-font-smoothing: antialiased;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-rendering: optimizeLegibility;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration-thickness: 1px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-underline-offset: 0.18em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.site-shell {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100svh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: end;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: var(--outer-pad);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--rule);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0)),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero__inner {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: min(100%, 1200px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero__kicker {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 600 0.78rem/1 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.16em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero__title {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 12ch;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: var(--display-size);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 0.95;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.04em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero__dek {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 22px 0 34px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 28ch;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(20px, 2vw, 30px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.2;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero__link {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 600 1rem/1 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid currentColor;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.era-nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 20;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px var(--outer-pad);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--rule);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(14px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(244, 240, 232, 0.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 600 0.9rem/1 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.12em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.era-nav a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.era-nav a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issues {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0 var(--outer-pad) var(--section-gap);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: var(--section-gap) 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--rule);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__grid {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: minmax(0, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: min(100%, 1200px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__meta {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-content: start;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__year {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 700 clamp(32px, 5vw, 66px)/0.95 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.04em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__strap {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 500 var(--meta-size)/1.3 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: var(--max-width);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: var(--body-size);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: var(--body-leading);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__body p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 1.2em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pullquote {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 28px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-left: 3px solid currentColor;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(22px, 2.4vw, 34px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.15;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.02em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__extras {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 420px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-top: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 500 0.98rem/1.45 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__extras h4 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 6px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 700 0.78rem/1 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.14em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue__extras p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--1995 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(to bottom, rgba(126, 31, 31, 0.02), rgba(126, 31, 31, 0));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--1995 .issue__year,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--1995 .pullquote,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--1995 .issue__extras a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--accent-1995);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--1995 .issue__body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.002em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2005 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(to bottom, rgba(138, 90, 0, 0.035), rgba(138, 90, 0, 0));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2005 .issue__year,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2005 .pullquote,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2005 .issue__extras a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--accent-2005);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2005 .issue__body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(18px, 1.35vw, 22px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2015 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(to bottom, rgba(36, 87, 122, 0.035), rgba(36, 87, 122, 0));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2015 .issue__year,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2015 .pullquote,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2015 .issue__extras a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--accent-2015);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.issue--2015 .issue__body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(17px, 1.18vw, 20px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.75;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 48px var(--outer-pad) 70px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer__inner {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: min(100%, 1200px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer__label {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font: 700 0.78rem/1 var(--sans);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.14em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 48ch;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (min-width: 900px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.issue__grid {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 220px minmax(0, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>gap: 48px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.issue__meta {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>top: 84px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="site-shell"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="hero" id="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero__inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hero__kicker"&gt;Digital fiction prototype&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="hero__title"&gt;Three Decades, One City&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hero__dek"&gt;Same nights. Same mistakes. Different versions of London, 1995 to 2015.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="hero__link" href="#nav"&gt;Enter the story ↓&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="era-nav" id="nav" aria-label="Era navigation"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#era-1995"&gt;1995&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#era-2005"&gt;2005&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#era-2015"&gt;2015&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="issues"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="issue issue--1995" id="era-1995"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="issue__grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;aside class="issue__meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="issue__year"&gt;1995&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="issue__strap"&gt;South London / too late / still analogue&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/aside&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="issue__body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Swap this for your real excerpt. Keep it short enough that the pacing feels deliberate. The point of the prototype is not to publish the whole novel — it’s to show how the reading experience changes by era, and how design can shape tone before the first proper plot beat lands.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Think of this section as slightly rougher, closer to print, more enclosed. You could tighten the column a touch, use more serif texture, and let the page feel like something passed hand to hand rather than endlessly scrolled.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;blockquote class="pullquote"&gt;“We stayed out because there was nowhere else to go.”&lt;/blockquote&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;If you want, this era could carry more low-key editorial furniture: a location stamp, a timestamp, or even a very small note that hints at the wider chapter without overexplaining it. Keep the writing doing most of the work.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="issue__extras"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Listen&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;a href="#"&gt;Add playlist link&lt;/a&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Context&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Use this tiny note for a cultural fragment, memory shard or visual reference.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="issue issue--2005" id="era-2005"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="issue__grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;aside class="issue__meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="issue__year"&gt;2005&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="issue__strap"&gt;East London / after midnight / peak mess&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/aside&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="issue__body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;This middle section can hold more energy. Still readable, still restrained, but slightly denser and more nightlife-driven. You might introduce a pull quote sooner, or interrupt the prose with one sharp visual rhythm change to suggest a city that feels faster and more performative.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Because the whole project is modular, each era should feel like a distinct issue rather than a chapter dropped into the same template. That’s where the portfolio value comes in — you’re showing system thinking, not just formatting text.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;blockquote class="pullquote"&gt;“By two in the morning everyone looked like someone they’d promised not to become.”&lt;/blockquote&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Keep the extras compact. A playlist, one image link, one line of context. Enough to suggest a wider publishing format, not so much that it starts feeling like an overbuilt app or a moodboard pretending to be fiction.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="issue__extras"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Listen&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;a href="#"&gt;Add playlist link&lt;/a&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Context&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Maybe a club night, tube line, estate, flyer, or year-specific cultural detail.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="issue issue--2015" id="era-2015"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="issue__grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;aside class="issue__meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="issue__year"&gt;2015&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="issue__strap"&gt;North-east / cleaner surface / stranger distance&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/aside&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="issue__body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;This version should breathe more. More white space. Cleaner typography. A feeling that the interface itself has changed because the world has. You can still keep the emotional mess, but the design language becomes cooler, flatter, and slightly more detached.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;For the portfolio framing, this is where your design thinking really lands: the content hasn’t changed medium by accident, it has changed because each era has its own visual and cultural grammar.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;blockquote class="pullquote"&gt;“Nothing had got quieter. It had just moved behind glass.”&lt;/blockquote&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Once this three-era prototype exists, you can decide whether to expand it into nine issues, keep it as a concept piece, or use it as the basis for a broader digital short fiction platform. But this alone is enough to stand on as a finished, intelligent project.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="issue__extras"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Listen&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;a href="#"&gt;Add playlist link&lt;/a&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Context&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Use this note to hint at how the project could scale into a wider publishing model.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="footer__inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer__label"&gt;About&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A digital fiction experiment exploring how long-form narrative might be reimagined as episodic, design-led publishing.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="site-shell">
+    <header class="hero" id="top">
+      <div class="hero__inner">
+        <p class="hero__kicker">Digital fiction prototype</p>
+        <h1 class="hero__title">Three Decades, One City</h1>
+        <p class="hero__dek">Same nights. Same mistakes. Different versions of London, 1995 to 2015.</p>
+        <a class="hero__link" href="#nav">Enter the story ↓</a>
+      </div>
+    </header>
+
+    <nav class="era-nav" id="nav" aria-label="Era navigation">
+      <a href="#era-1995">1995</a>
+      <a href="#era-2005">2005</a>
+      <a href="#era-2015">2015</a>
+    </nav>
+
+    <main class="issues">
+      <section class="issue issue--1995" id="era-1995">
+        <div class="issue__grid">
+          <aside class="issue__meta">
+            <h2 class="issue__year">1995</h2>
+            <p class="issue__strap">South London / too late / still analogue</p>
+          </aside>
+
+          <div class="issue__body">
+            <p>Swap this for your real excerpt. Keep it short enough that the pacing feels deliberate. The point of the prototype is not to publish the whole novel — it’s to show how the reading experience changes by era, and how design can shape tone before the first proper plot beat lands.</p>
+            <p>Think of this section as slightly rougher, closer to print, more enclosed. You could tighten the column a touch, use more serif texture, and let the page feel like something passed hand to hand rather than endlessly scrolled.</p>
+
+            <blockquote class="pullquote">“We stayed out because there was nowhere else to go.”</blockquote>
+
+            <p>If you want, this era could carry more low-key editorial furniture: a location stamp, a timestamp, or even a very small note that hints at the wider chapter without overexplaining it. Keep the writing doing most of the work.</p>
+
+            <div class="issue__extras">
+              <div>
+                <h4>Listen</h4>
+                <p><a href="#">Add playlist link</a></p>
+              </div>
+              <div>
+                <h4>Context</h4>
+                <p>Use this tiny note for a cultural fragment, memory shard or visual reference.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="issue issue--2005" id="era-2005">
+        <div class="issue__grid">
+          <aside class="issue__meta">
+            <h2 class="issue__year">2005</h2>
+            <p class="issue__strap">East London / after midnight / peak mess</p>
+          </aside>
+
+          <div class="issue__body">
+            <p>This middle section can hold more energy. Still readable, still restrained, but slightly denser and more nightlife-driven. You might introduce a pull quote sooner, or interrupt the prose with one sharp visual rhythm change to suggest a city that feels faster and more performative.</p>
+            <p>Because the whole project is modular, each era should feel like a distinct issue rather than a chapter dropped into the same template. That’s where the portfolio value comes in — you’re showing system thinking, not just formatting text.</p>
+
+            <blockquote class="pullquote">“By two in the morning everyone looked like someone they’d promised not to become.”</blockquote>
+
+            <p>Keep the extras compact. A playlist, one image link, one line of context. Enough to suggest a wider publishing format, not so much that it starts feeling like an overbuilt app or a moodboard pretending to be fiction.</p>
+
+            <div class="issue__extras">
+              <div>
+                <h4>Listen</h4>
+                <p><a href="#">Add playlist link</a></p>
+              </div>
+              <div>
+                <h4>Context</h4>
+                <p>Maybe a club night, tube line, estate, flyer, or year-specific cultural detail.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="issue issue--2015" id="era-2015">
+        <div class="issue__grid">
+          <aside class="issue__meta">
+            <h2 class="issue__year">2015</h2>
+            <p class="issue__strap">North-east / cleaner surface / stranger distance</p>
+          </aside>
+
+          <div class="issue__body">
+            <p>This version should breathe more. More white space. Cleaner typography. A feeling that the interface itself has changed because the world has. You can still keep the emotional mess, but the design language becomes cooler, flatter, and slightly more detached.</p>
+            <p>For the portfolio framing, this is where your design thinking really lands: the content hasn’t changed medium by accident, it has changed because each era has its own visual and cultural grammar.</p>
+
+            <blockquote class="pullquote">“Nothing had got quieter. It had just moved behind glass.”</blockquote>
+
+            <p>Once this three-era prototype exists, you can decide whether to expand it into nine issues, keep it as a concept piece, or use it as the basis for a broader digital short fiction platform. But this alone is enough to stand on as a finished, intelligent project.</p>
+
+            <div class="issue__extras">
+              <div>
+                <h4>Listen</h4>
+                <p><a href="#">Add playlist link</a></p>
+              </div>
+              <div>
+                <h4>Context</h4>
+                <p>Use this note to hint at how the project could scale into a wider publishing model.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__label">About</div>
+        <p>A digital fiction experiment exploring how long-form narrative might be reimagined as episodic, design-led publishing.</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
