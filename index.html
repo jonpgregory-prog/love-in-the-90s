@@ -351,12 +351,12 @@
 
           <div class="issue__body">
 
-  <div class="character-nav">
-    <button>All</button>
-    <button>Nick</button>
-    <button>Zoe</button>
-    <button>Josh</button>
-  </div>
+            <div class="character-nav">
+  <button data-filter="all" class="active">All</button>
+  <button data-filter="nick">Nick</button>
+  <button data-filter="zoe">Zoe</button>
+  <button data-filter="josh">Josh</button>
+</div>
 
  <div class="chapter" data-character="nick">
     <h3>1. Nick</h3>
@@ -645,4 +645,29 @@ When the receptionist returned, her smile was noticeably wider than before.
     </footer>
   </div>
 </body>
+  <script>
+document.querySelectorAll('.character-nav').forEach(nav => {
+  const buttons = nav.querySelectorAll('button');
+  const chapters = nav.parentElement.querySelectorAll('.chapter');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      chapters.forEach(chapter => {
+        const character = chapter.dataset.character;
+
+        if (filter === 'all' || character === filter) {
+          chapter.style.display = 'block';
+        } else {
+          chapter.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
 </html>
