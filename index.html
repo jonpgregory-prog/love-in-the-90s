@@ -272,6 +272,41 @@
       color: var(--muted);
     }
 
+.character-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.character-nav button {
+  border: 1px solid var(--rule);
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 600 0.78rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.character-nav button:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.chapter {
+  margin-bottom: 80px;
+}
+
+.chapter h3 {
+  margin-bottom: 20px;
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+}
+    
     @media (min-width: 900px) {
       .issue__grid {
         grid-template-columns: 220px minmax(0, 1fr);
@@ -323,7 +358,7 @@
     <button>Josh</button>
   </div>
 
-  <div class="chapter">
+ <div class="chapter" data-character="nick">
     <h3>1. Nick</h3>
     <p>Despite the morning light that was now bleeding through the thin curtains, the dregs of the party refused to give up. Nick blew a heavy sigh as the pounding techno was turned up another notch. Only two boys were left dancing, strutting on the spot in baggy jeans, marching to nowhere, chasing a buzz that died hours ago. The rest were sprawled across sofas and beanbags, chewing gum manically and occasionally laughing, but mostly just staring into space and sweating, with eyes wide in mad constant shock. 
 The scene was typical of a lot of nights he’d had recently. And it certainly was nothing like he’d read about in The Face or ID magazine - all the beautiful people elegantly wasted and partying together in swinging London. Nor was it anything like the glory days of acid house that his older brother would bang on about. Gone was the hands-in-the-air euphoria, gone was the peace, love and unity. Now that Nick was finally ready to join the ranks of the nocturnal hedonists, it was supremely disappointing to discover it was just a room of munted geezers nodding along to shit music. 
@@ -440,7 +475,7 @@ He watched her skip to the stairs of the bridge and then she was gone. Closing h
 </p>
   </div>
 
-  <div class="chapter">
+ <div class="chapter" data-character="zoe">
     <h3>2. Zoe</h3>
     <p>Zoe wasn’t quite sure how much black was the conventional standard. This was her first funeral since the two she attended as a child. And she didn’t remember what she had worn to either of those, she probably hadn’t even dressed herself.
 In the full length mirror in her bedroom she turned for a profile and then pouted out of habit. Black converse boots, black tights, black skirt, black t-shirt, black cardigan, black scarf, black bangles on her wrist and coincidentally her hair had recently been dyed very dark. She wondered if there was such a thing as overkill.
@@ -489,7 +524,7 @@ Zoe slammed the door behind her without responding and walked to Angel tube with
 </p>
   </div>
 
-  <div class="chapter">
+ <div class="chapter" data-character="josh">
     <h3>3. Josh</h3>
     <p>Josh took long strides on the sidewalk just to keep moving, his pacing had become almost therapeutic. The wide pavements of midtown Manhattan were only moderately busy, with dog-walkers and a few other tourists. 
 Strange how his fascination with the alien city had been superseded within just a couple of days, his thoughts now consumed by more personal concerns. No longer stopping to stare up towards the skyscrapers or taking photos of yellow cab traffic jams with his disposable camera. These things felt suddenly commonplace now that he had a role in the city,  rather than just another aimless tourist.  Watching one step and then another, he wondered if he was mentally prepared for his first ever business meeting and how many people would be seated around the boardroom table and whether it was a problem that he didn’t have a tie, or even a shirt.
@@ -538,9 +573,7 @@ When the receptionist returned, her smile was noticeably wider than before.
 “Mr Clements, won’t you please come through to the boardroom, we have Mr Pullman on the video conference phone,” she opened one arm to indicate the way, “can I get you some coffee?”
 </p>
   </div>
-                <p>Use this tiny note for a cultural fragment, memory shard or visual reference.</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
