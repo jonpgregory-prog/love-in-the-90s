@@ -575,6 +575,7 @@ The argument was a well-trodden path, with all the usual touch-points: Izzy, mon
 Zoe slammed the door behind her without responding and walked to Angel tube without once lifting her head. On the Southbound Northern Line, she ignored the Saturday night hubbub all around her within the carriage and stared intently at the reflection in the dark windows opposite. Arms folded, eyes dead, lips tightly thin and unsmiling. She was grateful when the shaky image of her face was interrupted by billboards and station platforms as they rattled down the ageing track. She couldn’t wait to get to the party and get wasted.
 </p>
           <div class="chapter-nav">
+              <button class="prev">← Previous Chapter</button>
   <button class="next">Next Chapter →</button>
 </div>
        </div>
@@ -636,6 +637,7 @@ When the receptionist returned, her smile was noticeably wider than before.
 “Mr Clements, won’t you please come through to the boardroom, we have Mr Pullman on the video conference phone,” she opened one arm to indicate the way, “can I get you some coffee?”
 </p>
 <div class="chapter-nav">
+    <button class="prev">← Previous Chapter</button>
   <button class="next">Next Chapter →</button>
 </div>
        </div>
@@ -712,23 +714,34 @@ When the receptionist returned, her smile was noticeably wider than before.
       </div>
     </footer>
   </div>
-  <script>
+<script>
 const chapters = document.querySelectorAll('.chapter');
+
+function showChapter(index) {
+  chapters.forEach(chapter => chapter.classList.remove('active'));
+
+  if (chapters[index]) {
+    chapters[index].classList.add('active');
+
+    document.querySelector('.issues').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+}
 
 chapters.forEach((chapter, index) => {
   const nextBtn = chapter.querySelector('.next');
+  const prevBtn = chapter.querySelector('.prev');
 
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-      chapter.classList.remove('active');
+      showChapter(index + 1);
+    });
+  }
 
-      if (chapters[index + 1]) {
-        chapters[index + 1].classList.add('active');
-
-document.querySelector('.issues').scrollIntoView({
-  behavior: 'smooth'
-});
-      }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      showChapter(index - 1);
     });
   }
 });
