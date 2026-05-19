@@ -272,24 +272,7 @@
       color: var(--muted);
     }
 
-.character-nav {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
 
-.character-nav button {
-  border: 1px solid var(--rule);
-  background: transparent;
-  padding: 10px 14px;
-  border-radius: 999px;
-  cursor: pointer;
-  font: 600 0.78rem/1 var(--sans);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
 
 .character-nav button:hover {
   color: var(--text);
@@ -297,7 +280,15 @@
 }
 
 .chapter {
+  display: none;
+  opacity: 0;
   margin-bottom: 80px;
+  transition: opacity 0.5s ease;
+}
+
+.chapter.active {
+  display: block;
+  opacity: 1;
 }
 
 .chapter h3 {
@@ -305,6 +296,56 @@
   font-family: var(--sans);
   font-size: 1.5rem;
   letter-spacing: -0.03em;
+}
+
+.chapter-progress {
+  margin-bottom: 42px;
+}
+
+.chapter-progress__year {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 0.72rem/1 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.chapter-progress__line {
+  position: relative;
+  height: 1px;
+  background: var(--rule);
+}
+
+.chapter-progress__dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.chapter-nav button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font: 600 0.9rem/1 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.chapter-nav button:hover {
+  color: var(--text);
 }
     
     @media (min-width: 900px) {
@@ -329,7 +370,7 @@
     <header class="hero" id="top">
       <div class="hero__inner">
         <p class="hero__kicker">Digital fiction prototype</p>
-        <h1 class="hero__title">Three Decades, One City</h1>
+        <h1 class="hero__title">Xxxxxx xxxxxxxx</h1>
         <p class="hero__dek">Same nights. Same mistakes. Different versions of London, 1995 to 2015.</p>
         <a class="hero__link" href="#nav">Enter the story ↓</a>
       </div>
@@ -348,16 +389,17 @@
             <h2 class="issue__year">1995</h2>
             <p class="issue__strap">South London / too late / still analogue</p>
           </aside>
-
           <div class="issue__body">
-            <div class="chapter-progress">
-  <span class="chapter-progress__year">1995</span>
-  <div class="chapter-progress__line">
-    <div class="chapter-progress__dot" style="left: 8%;"></div>
-  </div>
-</div>
 
- <div class="chapter" data-character="nick">
+       
+
+   <div class="chapter active" data-character="nick">
+  <div class="chapter-progress">
+    <span class="chapter-progress__year">1995</span>
+    <div class="chapter-progress__line">
+      <div class="chapter-progress__dot" style="left: 8%;"></div>
+    </div>
+  </div>
     <h3>1. Nick</h3>
     <p>Despite the morning light that was now bleeding through the thin curtains, the dregs of the party refused to give up. Nick blew a heavy sigh as the pounding techno was turned up another notch. Only two boys were left dancing, strutting on the spot in baggy jeans, marching to nowhere, chasing a buzz that died hours ago. The rest were sprawled across sofas and beanbags, chewing gum manically and occasionally laughing, but mostly just staring into space and sweating, with eyes wide in mad constant shock. 
 The scene was typical of a lot of nights he’d had recently. And it certainly was nothing like he’d read about in The Face or ID magazine - all the beautiful people elegantly wasted and partying together in swinging London. Nor was it anything like the glory days of acid house that his older brother would bang on about. Gone was the hands-in-the-air euphoria, gone was the peace, love and unity. Now that Nick was finally ready to join the ranks of the nocturnal hedonists, it was supremely disappointing to discover it was just a room of munted geezers nodding along to shit music. 
@@ -472,9 +514,20 @@ She wrote his number on the back of her hand with a stumpy eyeliner pencil. Nick
 She was twenty metres away without him even standing, “Don’t fall asleep!” she shouted over her shoulder and laughed, the same laugh he had heard so many times over the last couple of hours.
 He watched her skip to the stairs of the bridge and then she was gone. Closing his eyes, he leant against the back of the bench and felt the warmth of the morning sun on his bare arms. He was asleep within minutes.
 </p>
-  </div>
+          <div class="chapter-nav">
+  <button class="next">Next Chapter →</button>
+</div>
+       </div>
 
- <div class="chapter" data-character="zoe">
+
+
+   <div class="chapter" data-character="zoe">
+  <div class="chapter-progress">
+    <span class="chapter-progress__year">1995</span>
+    <div class="chapter-progress__line">
+      <div class="chapter-progress__dot" style="left: 16%;"></div>
+    </div>
+  </div>
     <h3>2. Zoe</h3>
     <p>Zoe wasn’t quite sure how much black was the conventional standard. This was her first funeral since the two she attended as a child. And she didn’t remember what she had worn to either of those, she probably hadn’t even dressed herself.
 In the full length mirror in her bedroom she turned for a profile and then pouted out of habit. Black converse boots, black tights, black skirt, black t-shirt, black cardigan, black scarf, black bangles on her wrist and coincidentally her hair had recently been dyed very dark. She wondered if there was such a thing as overkill.
@@ -521,9 +574,20 @@ The argument was a well-trodden path, with all the usual touch-points: Izzy, mon
 “Yeah you keep saying that, just because I’m a bit more sorted than the wankers you normally knock about with,” Grant was shouting, now a vicious finger jabbing towards Zoe’s face, “You always say the money has nothing to do with it, but I know you wouldn’t be here without the car, the flat. If you didn’t still live with your mum you probably would have never moved in. You’re full of shit.”
 Zoe slammed the door behind her without responding and walked to Angel tube without once lifting her head. On the Southbound Northern Line, she ignored the Saturday night hubbub all around her within the carriage and stared intently at the reflection in the dark windows opposite. Arms folded, eyes dead, lips tightly thin and unsmiling. She was grateful when the shaky image of her face was interrupted by billboards and station platforms as they rattled down the ageing track. She couldn’t wait to get to the party and get wasted.
 </p>
-  </div>
+          <div class="chapter-nav">
+  <button class="next">Next Chapter →</button>
+</div>
+       </div>
 
- <div class="chapter" data-character="josh">
+
+
+   <div class="chapter" data-character="josh">
+  <div class="chapter-progress">
+    <span class="chapter-progress__year">1995</span>
+    <div class="chapter-progress__line">
+      <div class="chapter-progress__dot" style="left: 24%;"></div>
+    </div>
+  </div>
     <h3>3. Josh</h3>
     <p>Josh took long strides on the sidewalk just to keep moving, his pacing had become almost therapeutic. The wide pavements of midtown Manhattan were only moderately busy, with dog-walkers and a few other tourists. 
 Strange how his fascination with the alien city had been superseded within just a couple of days, his thoughts now consumed by more personal concerns. No longer stopping to stare up towards the skyscrapers or taking photos of yellow cab traffic jams with his disposable camera. These things felt suddenly commonplace now that he had a role in the city,  rather than just another aimless tourist.  Watching one step and then another, he wondered if he was mentally prepared for his first ever business meeting and how many people would be seated around the boardroom table and whether it was a problem that he didn’t have a tie, or even a shirt.
@@ -571,10 +635,14 @@ As she disappeared, he watched the monitors, but the falling numbers meant nothi
 When the receptionist returned, her smile was noticeably wider than before.
 “Mr Clements, won’t you please come through to the boardroom, we have Mr Pullman on the video conference phone,” she opened one arm to indicate the way, “can I get you some coffee?”
 </p>
-  </div>
+<div class="chapter-nav">
+  <button class="next">Next Chapter →</button>
+</div>
+       </div>
 
           </div>
         </div>
+
       </section>
 
       <section class="issue issue--2005" id="era-2005">
@@ -583,6 +651,7 @@ When the receptionist returned, her smile was noticeably wider than before.
             <h2 class="issue__year">2005</h2>
             <p class="issue__strap">East London / after midnight / peak mess</p>
           </aside>
+          
 
           <div class="issue__body">
             <p>This middle section can hold more energy. Still readable, still restrained, but slightly denser and more nightlife-driven. You might introduce a pull quote sooner, or interrupt the prose with one sharp visual rhythm change to suggest a city that feels faster and more performative.</p>
@@ -643,29 +712,25 @@ When the receptionist returned, her smile was noticeably wider than before.
       </div>
     </footer>
   </div>
-    <script>
-document.querySelectorAll('.character-nav').forEach(nav => {
-  const buttons = nav.querySelectorAll('button');
-  const chapters = nav.parentElement.querySelectorAll('.chapter');
+  <script>
+const chapters = document.querySelectorAll('.chapter');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
+chapters.forEach((chapter, index) => {
+  const nextBtn = chapter.querySelector('.next');
 
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      chapter.classList.remove('active');
 
-      chapters.forEach(chapter => {
-        const character = chapter.dataset.character;
+      if (chapters[index + 1]) {
+        chapters[index + 1].classList.add('active');
 
-        if (filter === 'all' || character === filter) {
-          chapter.style.display = 'block';
-        } else {
-          chapter.style.display = 'none';
-        }
-      });
+document.querySelector('.issues').scrollIntoView({
+  behavior: 'smooth'
+});
+      }
     });
-  });
+  }
 });
 </script>
 </body>
