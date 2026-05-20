@@ -327,6 +327,32 @@
   transform: translate(-50%, -50%);
 }
 
+    .progress-dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--rule);
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.progress-dot.read {
+  background: var(--text);
+  cursor: pointer;
+}
+
+.progress-dot.active {
+  width: 13px;
+  height: 13px;
+  background: currentColor;
+}
+
+    .progress-dot:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
 .chapter-nav {
   display: flex;
   justify-content: space-between;
@@ -392,15 +418,19 @@
           <div class="issue__body">
 
        
+<div class="chapter active" data-character="nick">
+<div class="chapter-progress">
+  <span class="chapter-progress__year">1995</span>
 
-   <div class="chapter active" data-character="nick">
-  <div class="chapter-progress">
-    <span class="chapter-progress__year">1995</span>
-    <div class="chapter-progress__line">
-      <div class="chapter-progress__dot" style="left: 8%;"></div>
-    </div>
+  <div class="chapter-progress__line">
+    <button class="progress-dot active read" data-chapter="0" style="left: 8%;"></button>
+
+    <button class="progress-dot read" data-chapter="1" style="left: 16%;"></button>
+
+    <button class="progress-dot" data-chapter="2" style="left: 24%;"></button>
   </div>
-    <h3>1. Nick</h3>
+</div>
+    <h3>Nick</h3>
     <p>Despite the morning light that was now bleeding through the thin curtains, the dregs of the party refused to give up. Nick blew a heavy sigh as the pounding techno was turned up another notch. Only two boys were left dancing, strutting on the spot in baggy jeans, marching to nowhere, chasing a buzz that died hours ago. The rest were sprawled across sofas and beanbags, chewing gum manically and occasionally laughing, but mostly just staring into space and sweating, with eyes wide in mad constant shock. 
 The scene was typical of a lot of nights he’d had recently. And it certainly was nothing like he’d read about in The Face or ID magazine - all the beautiful people elegantly wasted and partying together in swinging London. Nor was it anything like the glory days of acid house that his older brother would bang on about. Gone was the hands-in-the-air euphoria, gone was the peace, love and unity. Now that Nick was finally ready to join the ranks of the nocturnal hedonists, it was supremely disappointing to discover it was just a room of munted geezers nodding along to shit music. 
 With impeccable timing a fish-faced teenager in a Ben Sherman shirt turned to him with a shivering jaw. “I’ve just put a pill up my bum,” he said.
@@ -520,15 +550,19 @@ He watched her skip to the stairs of the bridge and then she was gone. Closing h
        </div>
 
 
+<div class="chapter" data-character="zoe">
+<div class="chapter-progress">
+  <span class="chapter-progress__year">1995</span>
 
-   <div class="chapter" data-character="zoe">
-  <div class="chapter-progress">
-    <span class="chapter-progress__year">1995</span>
-    <div class="chapter-progress__line">
-      <div class="chapter-progress__dot" style="left: 16%;"></div>
-    </div>
+  <div class="chapter-progress__line">
+<button class="progress-dot read" data-chapter="0" style="left: 8%;"></button>
+
+<button class="progress-dot active read" data-chapter="1" style="left: 16%;"></button>
+
+<button class="progress-dot" data-chapter="2" style="left: 24%;"></button>
   </div>
-    <h3>2. Zoe</h3>
+</div>
+    <h3>Zoe</h3>
     <p>Zoe wasn’t quite sure how much black was the conventional standard. This was her first funeral since the two she attended as a child. And she didn’t remember what she had worn to either of those, she probably hadn’t even dressed herself.
 In the full length mirror in her bedroom she turned for a profile and then pouted out of habit. Black converse boots, black tights, black skirt, black t-shirt, black cardigan, black scarf, black bangles on her wrist and coincidentally her hair had recently been dyed very dark. She wondered if there was such a thing as overkill.
 Once dressed, she ate slowly from a bowl of cornflakes while sitting on the back step, enjoying the last of the late summer sunshine that would soon make way for autumn. She lifted the spoon carefully to her mouth, so as not to spill milky white on herself and dilute the outfit. One of the cats curled next to her, eyes half closed. Zoe stroked the warm fur and tickled behind her ears. Of the four, this ginger cat was her favourite, it was far less needy than the others.
@@ -581,15 +615,19 @@ Zoe slammed the door behind her without responding and walked to Angel tube with
        </div>
 
 
+<div class="chapter" data-character="josh">
+<div class="chapter-progress">
+  <span class="chapter-progress__year">1995</span>
 
-   <div class="chapter" data-character="josh">
-  <div class="chapter-progress">
-    <span class="chapter-progress__year">1995</span>
-    <div class="chapter-progress__line">
-      <div class="chapter-progress__dot" style="left: 24%;"></div>
-    </div>
+  <div class="chapter-progress__line">
+<button class="progress-dot read" data-chapter="0" style="left: 8%;"></button>
+
+<button class="progress-dot read" data-chapter="1" style="left: 16%;"></button>
+
+<button class="progress-dot active read" data-chapter="2" style="left: 24%;"></button>
   </div>
-    <h3>3. Josh</h3>
+</div>
+    <h3>Josh</h3>
     <p>Josh took long strides on the sidewalk just to keep moving, his pacing had become almost therapeutic. The wide pavements of midtown Manhattan were only moderately busy, with dog-walkers and a few other tourists. 
 Strange how his fascination with the alien city had been superseded within just a couple of days, his thoughts now consumed by more personal concerns. No longer stopping to stare up towards the skyscrapers or taking photos of yellow cab traffic jams with his disposable camera. These things felt suddenly commonplace now that he had a role in the city,  rather than just another aimless tourist.  Watching one step and then another, he wondered if he was mentally prepared for his first ever business meeting and how many people would be seated around the boardroom table and whether it was a problem that he didn’t have a tie, or even a shirt.
 Looking up, the painted lettering on a shopfront window seemed familiar, then he recognised the cigar shop nextdoor that he had bought an ‘I heart NY’ lighter from the day before. The hook-nosed middle-eastern guy who had served him was now sat outside on a milk crate, smoking a cigarette, rolling the filter between finger and thumb as if inspecting his own product. Next to that were a few steps that led down to the basement bar he had been at the previous night, the double doors were propped open with metal beer kegs. He peered in and heard music, Let It Be by The Beatles was softly playing, which seemed like a good omen so he went inside.
@@ -744,6 +782,16 @@ chapters.forEach((chapter, index) => {
       showChapter(index - 1);
     });
   }
+});
+  const progressDots = document.querySelectorAll('.progress-dot');
+
+progressDots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    if (dot.classList.contains('read')) {
+      const chapterIndex = parseInt(dot.dataset.chapter);
+      showChapter(chapterIndex);
+    }
+  });
 });
 </script>
 </body>
