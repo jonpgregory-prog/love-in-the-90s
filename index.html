@@ -13,7 +13,7 @@
       --accent-1995: #7e1f1f;
       --accent-2005: #8a5a00;
       --accent-2015: #24577a;
-      --max-width: 720px;
+      --max-width: 660px;
       --outer-pad: clamp(20px, 4vw, 48px);
       --section-gap: clamp(60px, 8vw, 120px);
       --body-size: clamp(18px, 1.3vw, 21px);
@@ -368,6 +368,25 @@
 .chapter-nav button:hover {
   color: var(--text);
 }
+    .chapter-meta {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+  font: 600 0.72rem/1 var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.chapter-meta span {
+  position: relative;
+}
+
+.chapter-meta span:not(:last-child)::after {
+  content: "•";
+  margin-left: 14px;
+  opacity: 0.4;
+}
     
     @media (min-width: 900px) {
       .issue__grid {
@@ -421,6 +440,11 @@
     <button class="progress-dot active read" data-chapter="0" style="left: 8%;"></button>
   </div>
 </div>
+    <div class="chapter-meta">
+    <span>South London</span>
+    <span>6:12am</span>
+    <span>June 1995</span>
+  </div>
     <h3>Nick</h3>
     <p>Despite the morning light that was now bleeding through the thin curtains, the dregs of the party refused to give up. Nick blew a heavy sigh as the pounding techno was turned up another notch. Only two boys were left dancing, strutting on the spot in baggy jeans, marching to nowhere, chasing a buzz that died hours ago. The rest were sprawled across sofas and beanbags, chewing gum manically and occasionally laughing, but mostly just staring into space and sweating, with eyes wide in mad constant shock. 
 The scene was typical of a lot of nights he’d had recently. And it certainly was nothing like he’d read about in The Face or ID magazine - all the beautiful people elegantly wasted and partying together in swinging London. Nor was it anything like the glory days of acid house that his older brother would bang on about. Gone was the hands-in-the-air euphoria, gone was the peace, love and unity. Now that Nick was finally ready to join the ranks of the nocturnal hedonists, it was supremely disappointing to discover it was just a room of munted geezers nodding along to shit music. 
@@ -550,6 +574,11 @@ He watched her skip to the stairs of the bridge and then she was gone. Closing h
 <button class="progress-dot active read" data-chapter="1" style="left: 16%;"></button>
   </div>
 </div>
+  <div class="chapter-meta">
+  <span>Islington</span>
+  <span>11:48am</span>
+  <span>September 1995</span>
+</div>
     <h3>Zoe</h3>
     <p>Zoe wasn’t quite sure how much black was the conventional standard. This was her first funeral since the two she attended as a child. And she didn’t remember what she had worn to either of those, she probably hadn’t even dressed herself.
 In the full length mirror in her bedroom she turned for a profile and then pouted out of habit. Black converse boots, black tights, black skirt, black t-shirt, black cardigan, black scarf, black bangles on her wrist and coincidentally her hair had recently been dyed very dark. She wondered if there was such a thing as overkill.
@@ -612,6 +641,11 @@ Zoe slammed the door behind her without responding and walked to Angel tube with
 <button class="progress-dot read" data-chapter="1" style="left: 16%;"></button>
 <button class="progress-dot active read" data-chapter="2" style="left: 24%;"></button>
   </div>
+</div>
+  <div class="chapter-meta">
+  <span>Midtown Manhattan</span>
+  <span>2:41pm</span>
+  <span>October 1995</span>
 </div>
     <h3>Josh</h3>
     <p>Josh took long strides on the sidewalk just to keep moving, his pacing had become almost therapeutic. The wide pavements of midtown Manhattan were only moderately busy, with dog-walkers and a few other tourists. 
