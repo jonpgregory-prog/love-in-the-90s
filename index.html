@@ -313,45 +313,35 @@
 
 .chapter-progress__line {
   position: relative;
-  height: 1px;
+  height: 2px;
   background: var(--rule);
 }
 
-.chapter-progress__dot {
+.progress-dot {
   position: absolute;
   top: 50%;
   width: 10px;
   height: 10px;
+  border: 2px solid var(--rule);
   border-radius: 999px;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-}
-
-    .progress-dot {
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--rule);
+  background: var(--bg);
   transform: translate(-50%, -50%);
   cursor: default;
 }
 
 .progress-dot.read {
-  background: var(--text);
+  border-color: var(--text);
+  background: var(--bg);
   cursor: pointer;
 }
 
 .progress-dot.active {
-  width: 13px;
-  height: 13px;
-  background: currentColor;
+  border-color: var(--text);
+  background: var(--text);
 }
 
-    .progress-dot:hover {
-  transform: translate(-50%, -50%) scale(1.2);
+.progress-dot:hover {
+  transform: translate(-50%, -50%) scale(1.25);
 }
 .chapter-nav {
   display: flex;
@@ -424,10 +414,6 @@
 
   <div class="chapter-progress__line">
     <button class="progress-dot active read" data-chapter="0" style="left: 8%;"></button>
-
-    <button class="progress-dot read" data-chapter="1" style="left: 16%;"></button>
-
-    <button class="progress-dot" data-chapter="2" style="left: 24%;"></button>
   </div>
 </div>
     <h3>Nick</h3>
@@ -556,10 +542,7 @@ He watched her skip to the stairs of the bridge and then she was gone. Closing h
 
   <div class="chapter-progress__line">
 <button class="progress-dot read" data-chapter="0" style="left: 8%;"></button>
-
 <button class="progress-dot active read" data-chapter="1" style="left: 16%;"></button>
-
-<button class="progress-dot" data-chapter="2" style="left: 24%;"></button>
   </div>
 </div>
     <h3>Zoe</h3>
@@ -621,9 +604,7 @@ Zoe slammed the door behind her without responding and walked to Angel tube with
 
   <div class="chapter-progress__line">
 <button class="progress-dot read" data-chapter="0" style="left: 8%;"></button>
-
 <button class="progress-dot read" data-chapter="1" style="left: 16%;"></button>
-
 <button class="progress-dot active read" data-chapter="2" style="left: 24%;"></button>
   </div>
 </div>
