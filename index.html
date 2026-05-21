@@ -334,16 +334,13 @@
   height: 12px;
   padding: 0;
   margin: 0;
-  border: 2px solid var(--rule);
+  border: 2px solid var(--timeline-colour);
   border-radius: 50%;
-  background: var(--bg);
+  background-color: var(--bg);
+  box-shadow: 0 0 0 2px var(--bg);
   appearance: none;
   -webkit-appearance: none;
   transform: translate(-50%, -50%);
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
 }
 
 .progress-dot.read {
