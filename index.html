@@ -2781,12 +2781,27 @@ London New York Los Angeles</p>
   </div>
 <script>
 const chapters = document.querySelectorAll('.chapter');
+const progressDots = document.querySelectorAll('.progress-dot');
+
+let furthestChapter = Number(localStorage.getItem('furthestChapter')) || 0;
 
 function showChapter(index) {
   chapters.forEach(chapter => chapter.classList.remove('active'));
 
   if (chapters[index]) {
     chapters[index].classList.add('active');
+
+    if (index > furthestChapter) {
+      furthestChapter = index;
+      localStorage.setItem('furthestChapter', furthestChapter);
+    }
+
+    progressDots.forEach(dot => {
+      const dotIndex = parseInt(dot.dataset.chapter);
+
+      dot.classList.toggle('active', dotIndex === index);
+      dot.classList.toggle('read', dotIndex <= furthestChapter);
+    });
 
     document.querySelector('.issues').scrollIntoView({
       behavior: 'smooth'
@@ -2810,16 +2825,18 @@ chapters.forEach((chapter, index) => {
     });
   }
 });
-  const progressDots = document.querySelectorAll('.progress-dot');
 
 progressDots.forEach(dot => {
   dot.addEventListener('click', () => {
-    if (dot.classList.contains('read')) {
-      const chapterIndex = parseInt(dot.dataset.chapter);
+    const chapterIndex = parseInt(dot.dataset.chapter);
+
+    if (chapterIndex <= furthestChapter) {
       showChapter(chapterIndex);
     }
   });
 });
+
+showChapter(furthestChapter);
 </script>
 </body>
 </html>
