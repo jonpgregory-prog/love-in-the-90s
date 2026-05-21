@@ -350,6 +350,14 @@
   background: var(--timeline-colour);
   border-color: var(--timeline-colour);
 }
+    .progress-dot {
+  opacity: 0;
+}
+
+.progress-dot.read,
+.progress-dot.active {
+  opacity: 1;
+}
 
 .progress-dot.read:hover {
   transform: translate(-50%, -50%) scale(1.25);
