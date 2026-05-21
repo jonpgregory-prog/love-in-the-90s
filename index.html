@@ -10,7 +10,7 @@
       --text: #111111;
       --muted: #5f5a52;
       --rule: rgba(17, 17, 17, 0.14);
-      --accent-1995: #7e1f1f;
+--accent-1995: var(--timeline-colour);
       --accent-2005: #8a5a00;
       --accent-2015: #24577a;
       --max-width: 660px;
@@ -213,49 +213,53 @@
       color: var(--muted);
     }
 
-    .issue--1995 {
-      background: linear-gradient(to bottom, rgba(126, 31, 31, 0.02), rgba(126, 31, 31, 0));
-    }
+.issue--1995 {
+  --timeline-colour: #ff6b00;
 
-    .issue--1995 .issue__year,
-    .issue--1995 .pullquote,
-    .issue--1995 .issue__extras a {
-      color: var(--accent-1995);
-    }
+  background: linear-gradient(
+    to bottom,
+    rgba(126, 31, 31, 0.02),
+    rgba(126, 31, 31, 0)
+  );
+}
 
-    .issue--1995 .issue__body {
-      letter-spacing: 0.002em;
-    }
+.issue--1995 .issue__year,
+.issue--1995 .pullquote,
+.issue--1995 .issue__extras a {
+  color: var(--timeline-colour);
+}
 
-    .issue--2005 {
-      background: linear-gradient(to bottom, rgba(138, 90, 0, 0.035), rgba(138, 90, 0, 0));
-    }
+.issue--2005 {
+  --timeline-colour: #c58a00;
 
-    .issue--2005 .issue__year,
-    .issue--2005 .pullquote,
-    .issue--2005 .issue__extras a {
-      color: var(--accent-2005);
-    }
+  background: linear-gradient(
+    to bottom,
+    rgba(138, 90, 0, 0.035),
+    rgba(138, 90, 0, 0)
+  );
+}
 
-    .issue--2005 .issue__body {
-      font-size: clamp(18px, 1.35vw, 22px);
-    }
+.issue--2005 .issue__year,
+.issue--2005 .pullquote,
+.issue--2005 .issue__extras a {
+  color: var(--timeline-colour);
+}
 
-    .issue--2015 {
-      background: linear-gradient(to bottom, rgba(36, 87, 122, 0.035), rgba(36, 87, 122, 0));
-    }
+.issue--2015 {
+  --timeline-colour: #24577a;
 
-    .issue--2015 .issue__year,
-    .issue--2015 .pullquote,
-    .issue--2015 .issue__extras a {
-      color: var(--accent-2015);
-    }
+  background: linear-gradient(
+    to bottom,
+    rgba(36, 87, 122, 0.035),
+    rgba(36, 87, 122, 0)
+  );
+}
 
-    .issue--2015 .issue__body {
-      font-family: var(--sans);
-      font-size: clamp(17px, 1.18vw, 20px);
-      line-height: 1.75;
-    }
+.issue--2015 .issue__year,
+.issue--2015 .pullquote,
+.issue--2015 .issue__extras a {
+  color: var(--timeline-colour);
+}
 
     .footer {
       padding: 48px var(--outer-pad) 70px;
@@ -314,12 +318,7 @@
 }
 
 .chapter-progress__year {
-  display: block;
-  margin-bottom: 10px;
-  font: 700 0.72rem/1 var(--sans);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  display: none;
 }
 .chapter-progress__line {
   position: relative;
@@ -445,7 +444,11 @@
         <div class="issue__grid">
           <aside class="issue__meta">
             <h2 class="issue__year">1995</h2>
-            <p class="issue__strap">South London / too late / still analogue</p>
+<p class="issue__strap">
+  <a href="YOUR-SPOTIFY-LINK-HERE" target="_blank">
+    Listen to the 1995 playlist
+  </a>
+</p>
           </aside>
           <div class="issue__body">
 
