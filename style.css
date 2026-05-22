@@ -77,13 +77,13 @@
       letter-spacing: -0.04em;
     }
 
-    .hero__dek {
-      margin: 22px 0 34px;
-      max-width: 36ch;
-      font-size: clamp(20px, 2vw, 30px);
-      line-height: 1.2;
-      color: var(--muted);
-    }
+.hero__dek {
+  margin: 22px 0 34px;
+  max-width: 42ch;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.25;
+  color: var(--muted);
+}
 
     .hero__link {
       display: inline-flex;
