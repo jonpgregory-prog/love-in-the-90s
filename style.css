@@ -79,7 +79,7 @@
 
     .hero__dek {
       margin: 22px 0 34px;
-      max-width: 28ch;
+      max-width: 36ch;
       font-size: clamp(20px, 2vw, 30px);
       line-height: 1.2;
       color: var(--muted);
