@@ -434,15 +434,13 @@
   margin-left: 24px;
 }
 
-.inline-image img {
-  width: 100%;
-  display: block;
+.story-image {
+  margin: 80px 0;
 }
 
-.inline-image figcaption {
-  margin-top: 8px;
-  font: 500 0.75rem/1.4 var(--sans);
-  color: var(--muted);
+.story-image img {
+  width: 100%;
+  display: block;
 }
  @media (max-width: 700px) {
   .progress-dot {
