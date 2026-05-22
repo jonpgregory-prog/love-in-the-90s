@@ -125,6 +125,16 @@
     .era-nav a:hover {
       color: var(--text);
     }
+    
+    .era-next {
+  display: inline-block;
+  margin-top: 60px;
+  font: 600 0.9rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--timeline-colour);
+}
 
     .issues {
       padding: 0 var(--outer-pad) var(--section-gap);
@@ -436,15 +446,10 @@
         <p class="hero__kicker">A novel in three halves</p>
         <h1 class="hero__title">Yeah no definitely.</h1>
         <p class="hero__dek">Three friends - three decades. Fuelled by alcopops and amphetamines, they’ll spend the rest of their lives dealing with what happened after the party.</p>
-        <a class="hero__link" href="#nav">Enter the story ↓</a>
+        <a class="hero__link" href="#era-1995">Enter 1995 ↓</a>
       </div>
     </header>
 
-    <nav class="era-nav" id="nav" aria-label="Era navigation">
-      <a href="#era-1995">1995</a>
-      <a href="#era-2005">2005</a>
-      <a href="#era-2015">2015</a>
-    </nav>
 
     <main class="issues">
       <section class="issue issue--1995" id="era-1995">
@@ -2780,7 +2785,7 @@ London New York Los Angeles</p>
 <p>She flicked the half-smoked Rothman overboard and wiped the sea spray from her face. Even in the thundering winds she could tell her hands were shaking.</p>
 
   <div class="chapter-nav">
-<a href="#era-2005" class="next-era">Enter 2005 →</a>  
+<a class="era-next" href="2005.html">Continue to 2005 →</a>
   </div>
 
 </div>
