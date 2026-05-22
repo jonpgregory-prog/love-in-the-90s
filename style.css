@@ -412,6 +412,18 @@
   margin-left: 14px;
   opacity: 0.4;
 }
+
+.theme-1995 {
+  --timeline-colour: #ff6b00;
+}
+
+.theme-2005 {
+  --timeline-colour: #c58a00;
+}
+
+.theme-2015 {
+  --timeline-colour: #24577a;
+}
  @media (max-width: 700px) {
   .progress-dot {
     border-width: 2px;
