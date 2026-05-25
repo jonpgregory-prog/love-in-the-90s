@@ -27,12 +27,13 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+  background: #f3f1eb;
       color: var(--text);
       font-family: var(--serif);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
+
 
     a {
       color: inherit;
@@ -175,6 +176,7 @@
 }
 
     .issue__body {
+          background: #f3f1eb;
       max-width: var(--max-width);
       font-size: var(--body-size);
       line-height: var(--body-leading);
