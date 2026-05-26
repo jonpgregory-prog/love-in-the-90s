@@ -2436,6 +2436,38 @@ progressDots.forEach(dot => {
 });
 
 showChapter(0);
+  const firstChapter = document.querySelector('.chapter.active');
+
+  function mixColor(color1, color2, amount) {
+    const c1 = color1.match(/\w\w/g).map(x => parseInt(x, 16));
+    const c2 = color2.match(/\w\w/g).map(x => parseInt(x, 16));
+
+    const mixed = c1.map((v, i) =>
+      Math.round(v + (c2[i] - v) * amount)
+    );
+
+    return '#' + mixed.map(x => x.toString(16).padStart(2, '0')).join('');
+  }
+
+  function updateLight() {
+    const rect = firstChapter.getBoundingClientRect();
+    const chapterHeight = firstChapter.offsetHeight - window.innerHeight;
+
+    let progress = Math.abs(rect.top) / chapterHeight;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    const dawn = '#d8d0c3';
+    const daylight = '#f3f1eb';
+
+    document.documentElement.style.setProperty(
+      '--page-bg',
+      mixColor(dawn, daylight, progress)
+    );
+  }
+
+  window.addEventListener('scroll', updateLight);
+  updateLight();
+
 </script>
 </body>
 </html>
