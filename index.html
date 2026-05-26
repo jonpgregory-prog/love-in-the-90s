@@ -2421,7 +2421,7 @@ function updateLight() {
   const textStart = activeChapter.dataset.textStart || '#111111';
 const textEnd = activeChapter.dataset.textEnd || '#111111';
 
-const textProgress = Math.min(Math.max((progress - 0.25) / 0.35, 0), 1);
+  const textProgress = progress > 0.22 ? 1 : 0;
 
 document.documentElement.style.setProperty(
   '--page-text',
