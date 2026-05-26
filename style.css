@@ -310,6 +310,14 @@
   letter-spacing: -0.03em;
 }
 
+.chapter p {
+  display: inline;
+  background: rgba(244, 240, 232, 0.38);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.08em 0.18em;
+}
+
 .chapter-progress {
   margin-bottom: 42px;
 }
