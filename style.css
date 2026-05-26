@@ -296,6 +296,7 @@
   display: none;
   opacity: 0;
   margin-bottom: 80px;
+  padding-top: 24px;
   transition: opacity 0.5s ease;
 }
 
