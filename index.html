@@ -2418,15 +2418,7 @@ function updateLight() {
     '--page-bg',
     mixColor(startColor, endColor, progress)
   );
-  const textStart = activeChapter.dataset.textStart || '#111111';
-const textEnd = activeChapter.dataset.textEnd || '#111111';
 
-  const textProgress = progress > 0.22 ? 1 : 0;
-
-document.documentElement.style.setProperty(
-  '--page-text',
-  mixColor(textStart, textEnd, textProgress)
-);
 }
 
 function showChapter(index) {
