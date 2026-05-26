@@ -1,4 +1,6 @@
     :root {
+          --page-bg: #d8d0c3;
+  --page-text: #111111;
       --bg: #f4f0e8;
       --text: #111111;
       --muted: #5f5a52;
@@ -27,13 +29,13 @@
 
     body {
       margin: 0;
-  background: #f3f1eb;
-      color: var(--text);
+  background: var(--page-bg);
+  color: var(--page-text);
+  transition: background 0.25s linear, color 0.25s linear;
       font-family: var(--serif);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-
 
     a {
       color: inherit;
@@ -176,7 +178,7 @@
 }
 
     .issue__body {
-          background: #f3f1eb;
+          background: transparent;
       max-width: var(--max-width);
       font-size: var(--body-size);
       line-height: var(--body-leading);
