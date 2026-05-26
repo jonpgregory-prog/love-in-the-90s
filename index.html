@@ -2439,9 +2439,13 @@ function showChapter(index) {
       dot.classList.toggle('read', dotIndex <= furthestChapter);
     });
 
-    document.querySelector('.issues').scrollIntoView({
-      behavior: 'smooth'
-    });
+const newBgStart = chapters[index].dataset.bgStart || '#f3f1eb';
+
+document.documentElement.style.setProperty('--page-bg', newBgStart);
+
+document.querySelector('.issues').scrollIntoView({
+  behavior: 'smooth'
+});
 
     updateLight();
   }
