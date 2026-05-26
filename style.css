@@ -30,11 +30,11 @@
     body {
   margin: 0;
   background: var(--page-bg);
-  color: var(--page-text);
+  color: #111111;
   font-family: var(--serif);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background 0.25s linear, color 0.25s linear;
+  transition: background 0.25s linear;
     }
 
     a {
@@ -178,7 +178,8 @@
 }
 
     .issue__body {
-          background: transparent;
+    background: #f3f1eb;
+  padding: 0 28px;
       max-width: var(--max-width);
       font-size: var(--body-size);
       line-height: var(--body-leading);
