@@ -2382,10 +2382,12 @@ London New York Los Angeles</p>
     </footer>
   </div>
 <script>
+  
 const chapters = document.querySelectorAll('.chapter');
 const progressDots = document.querySelectorAll('.progress-dot');
 
 let furthestChapter = Number(localStorage.getItem('furthestChapter')) || 0;
+  let isChangingChapter = false;
 
 function mixColor(color1, color2, amount) {
   const c1 = color1.match(/\w\w/g).map(x => parseInt(x, 16));
@@ -2399,6 +2401,7 @@ function mixColor(color1, color2, amount) {
 }
 
 function updateLight() {
+  if (isChangingChapter) return;
   const activeChapter = document.querySelector('.chapter.active');
 
   if (!activeChapter) return;
@@ -2420,6 +2423,11 @@ function updateLight() {
 }
 
 function showChapter(index) {
+
+
+
+
+  
   chapters.forEach(chapter => chapter.classList.remove('active'));
 
   if (chapters[index]) {
@@ -2439,13 +2447,17 @@ function showChapter(index) {
 
 const newBgStart = chapters[index].dataset.bgStart || '#f3f1eb';
 
+isChangingChapter = true;
 document.documentElement.style.setProperty('--page-bg', newBgStart);
 
 document.querySelector('.issues').scrollIntoView({
   behavior: 'smooth'
 });
 
-setTimeout(updateLight, 500);
+setTimeout(() => {
+  isChangingChapter = false;
+  updateLight();
+}, 700);
   }
 }
 
