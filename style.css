@@ -518,6 +518,12 @@ body {
         gap: 48px;
       }
 
+        @media (max-width: 899px) {
+  .issue__meta {
+    padding-left: 12px;
+  }
+}
+
       .issue__meta {
         position: sticky;
         top: 84px;
