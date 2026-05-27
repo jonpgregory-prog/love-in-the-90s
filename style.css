@@ -419,6 +419,17 @@ body {
 .progress-dot.read:hover {
   transform: translate(-50%, -50%) scale(1.25);
 }
+
+.playlist-icon {
+  width: 14px;
+  height: 14px;
+
+  margin-right: 6px;
+
+  vertical-align: -1px;
+
+  opacity: 0.72;
+}
 .chapter-nav {
   display: flex;
   justify-content: space-between;
