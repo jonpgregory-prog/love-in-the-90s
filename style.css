@@ -323,13 +323,6 @@ body {
   opacity: 1;
 }
 
-.chapter h3 {
-  margin-bottom: 20px;
-  font-family: var(--sans);
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
-}
-
 .chapter[data-character="nick"] {
   --chapter-accent: #5f7f9a;
 }
@@ -356,10 +349,7 @@ body {
   background: var(--timeline-colour);
 }
 
-.chapter.active .chapter-meta,
-.chapter.active h3 {
-  color: var(--chapter-accent);
-}
+
 
 .progress-dot {
   position: absolute;
@@ -416,21 +406,39 @@ body {
 .chapter-nav button:hover {
   color: var(--text);
 }
-    .chapter-meta {
+  .chapter-meta {
+  margin-bottom: 28px;
+}
+
+.chapter-meta__character {
+  margin-bottom: 10px;
+
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: var(--chapter-accent);
+}
+
+.chapter-meta__details {
   display: flex;
   gap: 14px;
-  margin-bottom: 18px;
-  font: 600 0.72rem/1 var(--sans);
-  letter-spacing: 0.12em;
+  flex-wrap: wrap;
+
+  font: 600 0.9rem/1 var(--sans);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+
   color: var(--muted);
 }
 
-.chapter-meta span {
+.chapter-meta__details span {
   position: relative;
 }
 
-.chapter-meta span:not(:last-child)::after {
+.chapter-meta__details span:not(:last-child)::after {
   content: "•";
   margin-left: 14px;
   opacity: 0.4;
