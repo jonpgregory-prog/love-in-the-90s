@@ -2468,6 +2468,18 @@ progressDots.forEach(dot => {
 });
 
 showChapter(0);
+
+  const heroImages = document.querySelectorAll('.hero__carousel img');
+
+let heroIndex = 0;
+
+setInterval(() => {
+  heroImages[heroIndex].classList.remove('active');
+
+  heroIndex = (heroIndex + 1) % heroImages.length;
+
+  heroImages[heroIndex].classList.add('active');
+}, 5000);
 </script>
 </body>
 </html>
