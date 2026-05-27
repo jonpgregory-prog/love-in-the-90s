@@ -529,13 +529,7 @@ body {
         gap: 48px;
       }
 
-        @media (max-width: 899px) {
-  .issue__meta {
-    padding: 0 12px;
-  }
-}
-
-      .issue__meta {
+     .issue__meta {
         position: sticky;
         top: 84px;
       }
@@ -545,3 +539,18 @@ body {
 }
     }
 
+@media (max-width: 899px) {
+  .issue__meta,
+  .issue__body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .issue__meta {
+    position: static;
+  }
+
+  .issue__year {
+    margin-left: 0;
+  }
+}
