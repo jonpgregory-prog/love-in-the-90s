@@ -49,7 +49,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .hero__carousel {
@@ -82,8 +82,17 @@ body {
 }
 
 .hero__inner {
-  position: relative;
+  position: absolute;
+  left: 28px;
+  bottom: 42px;
   z-index: 2;
+
+  max-width: 680px;
+
+  padding: 24px 26px;
+
+  background: rgba(244, 240, 232, 0.82);
+  backdrop-filter: blur(5px);
 }
 
     .hero__kicker {
