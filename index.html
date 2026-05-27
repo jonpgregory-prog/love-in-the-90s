@@ -33,12 +33,8 @@
           <div class="issue__body">
 
        
-<div class="chapter active"
-     data-character="nick"
-     data-bg-start="#d8d0c3"
-     data-bg-end="#f3f1eb"
-     data-text-start="#111111"
-     data-text-end="#111111">
+<div class="chapter active" data-character="nick">
+
   
 <div class="chapter-progress">
   <span class="chapter-progress__year">1995</span>
@@ -294,10 +290,7 @@
        </div>
 
 
-<div class="chapter"
-     data-character="zoe"
-     data-bg-start="#f3f1eb"
-     data-bg-end="#1e2230">
+<div class="chapter"   data-character="zoe">
 
   
 <div class="chapter-progress">
@@ -2381,53 +2374,14 @@ London New York Los Angeles</p>
       </div>
     </footer>
   </div>
-<script>
   
+<script>
 const chapters = document.querySelectorAll('.chapter');
 const progressDots = document.querySelectorAll('.progress-dot');
 
 let furthestChapter = Number(localStorage.getItem('furthestChapter')) || 0;
-  let isChangingChapter = false;
-
-function mixColor(color1, color2, amount) {
-  const c1 = color1.match(/\w\w/g).map(x => parseInt(x, 16));
-  const c2 = color2.match(/\w\w/g).map(x => parseInt(x, 16));
-
-  const mixed = c1.map((v, i) =>
-    Math.round(v + (c2[i] - v) * amount)
-  );
-
-  return '#' + mixed.map(x => x.toString(16).padStart(2, '0')).join('');
-}
-
-function updateLight() {
-  if (isChangingChapter) return;
-  const activeChapter = document.querySelector('.chapter.active');
-
-  if (!activeChapter) return;
-
-  const startColor = activeChapter.dataset.bgStart || '#d8d0c3';
-  const endColor = activeChapter.dataset.bgEnd || '#f3f1eb';
-
-  const rect = activeChapter.getBoundingClientRect();
-  const chapterHeight = activeChapter.offsetHeight - window.innerHeight;
-
-  let progress = Math.abs(rect.top) / chapterHeight;
-  progress = Math.min(Math.max(progress, 0), 1);
-
-  document.documentElement.style.setProperty(
-    '--page-bg',
-    mixColor(startColor, endColor, progress)
-  );
-
-}
 
 function showChapter(index) {
-
-
-
-
-  
   chapters.forEach(chapter => chapter.classList.remove('active'));
 
   if (chapters[index]) {
@@ -2445,19 +2399,9 @@ function showChapter(index) {
       dot.classList.toggle('read', dotIndex <= furthestChapter);
     });
 
-const newBgStart = chapters[index].dataset.bgStart || '#f3f1eb';
-
-isChangingChapter = true;
-document.documentElement.style.setProperty('--page-bg', newBgStart);
-
-document.querySelector('.issues').scrollIntoView({
-  behavior: 'smooth'
-});
-
-setTimeout(() => {
-  isChangingChapter = false;
-  updateLight();
-}, 700);
+    document.querySelector('.issues').scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 }
 
@@ -2488,10 +2432,7 @@ progressDots.forEach(dot => {
   });
 });
 
-window.addEventListener('scroll', updateLight);
-
 showChapter(0);
-updateLight();
 </script>
 </body>
 </html>
