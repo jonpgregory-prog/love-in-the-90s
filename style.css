@@ -531,7 +531,7 @@ body {
 
         @media (max-width: 899px) {
   .issue__meta {
-    padding-left: 12px;
+    padding: 0 12px;
   }
 }
 
