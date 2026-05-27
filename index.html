@@ -2390,6 +2390,21 @@ function showChapter(index) {
   if (chapters[index]) {
     chapters[index].classList.add('active');
 
+    const activeCharacter = chapters[index].dataset.character;
+const issueYear = document.querySelector('.issue__year');
+
+if (activeCharacter === 'nick') {
+  issueYear.style.color = '#5f7f9a';
+}
+
+if (activeCharacter === 'zoe') {
+  issueYear.style.color = '#b35a2e';
+}
+
+if (activeCharacter === 'josh') {
+  issueYear.style.color = '#596f63';
+}
+
     if (index > furthestChapter) {
       furthestChapter = index;
       localStorage.setItem('furthestChapter', furthestChapter);
