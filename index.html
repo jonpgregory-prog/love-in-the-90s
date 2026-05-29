@@ -2423,9 +2423,19 @@ if (activeCharacter === 'josh') {
       dot.classList.toggle('read', dotIndex <= furthestChapter);
     });
 
-    document.querySelector('.issues').scrollIntoView({
-      behavior: 'smooth'
-    });
+const savedPosition = localStorage.getItem(
+  `scrollPosition_${index}`
+);
+
+if (savedPosition) {
+  setTimeout(() => {
+    window.scrollTo(0, parseInt(savedPosition, 10));
+  }, 50);
+} else {
+  document.querySelector('.issues').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
   }
 }
 
@@ -2456,7 +2466,10 @@ progressDots.forEach(dot => {
   });
 });
 
-showChapter(0);
+const lastChapter =
+  parseInt(localStorage.getItem('lastChapter')) || 0;
+
+showChapter(lastChapter);
 
   const heroImages = document.querySelectorAll('.hero__carousel img');
 
@@ -2469,6 +2482,19 @@ setInterval(() => {
 
   heroImages[heroIndex].classList.add('active');
 }, 5000);
+
+  window.addEventListener('scroll', () => {
+  const activeChapter = document.querySelector('.chapter.active');
+  if (!activeChapter) return;
+
+  const chapterIndex = [...chapters].indexOf(activeChapter);
+
+  localStorage.setItem('lastChapter', chapterIndex);
+  localStorage.setItem(
+    `scrollPosition_${chapterIndex}`,
+    window.scrollY
+  );
+});
 </script>
 </body>
 </html>
