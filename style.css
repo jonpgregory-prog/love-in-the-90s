@@ -115,10 +115,10 @@ body {
 
 .hero__dek {
   margin: 22px 0 34px;
-  max-width: 42ch;
-  font-size: clamp(20px, 2vw, 30px);
-  line-height: 1.25;
-  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.65;
 }
 
     .hero__link {
