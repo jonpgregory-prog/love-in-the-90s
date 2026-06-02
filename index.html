@@ -2393,7 +2393,7 @@ const progressDots = document.querySelectorAll('.progress-dot');
 
 let furthestChapter = Number(localStorage.getItem('furthestChapter')) || 0;
 
-function showChapter(index) {
+function showChapter(index, restorePosition = false) {
   chapters.forEach(chapter => chapter.classList.remove('active'));
 
   if (chapters[index]) {
@@ -2426,14 +2426,16 @@ if (activeCharacter === 'josh') {
       dot.classList.toggle('read', dotIndex <= furthestChapter);
     });
 
-const savedPosition = localStorage.getItem(
-  `scrollPosition_${index}`
-);
+if (restorePosition) {
+  const savedPosition = localStorage.getItem(
+    `scrollPosition_${index}`
+  );
 
-if (savedPosition) {
-  setTimeout(() => {
-    window.scrollTo(0, parseInt(savedPosition, 10));
-  }, 50);
+  if (savedPosition) {
+    setTimeout(() => {
+      window.scrollTo(0, parseInt(savedPosition, 10));
+    }, 50);
+  }
 } else {
   document.querySelector('.issues').scrollIntoView({
     behavior: 'smooth'
@@ -2472,7 +2474,7 @@ progressDots.forEach(dot => {
 const lastChapter =
   parseInt(localStorage.getItem('lastChapter')) || 0;
 
-showChapter(lastChapter);
+showChapter(lastChapter, true);
 
   const heroImages = document.querySelectorAll('.hero__carousel img');
 
