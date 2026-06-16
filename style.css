@@ -108,18 +108,15 @@ body {
 .hero__title {
   display: inline;
 
-  padding: 0.01em 0.12em;
-
-  line-height: 1.05;
-
   font-family: var(--sans);
   font-weight: 700;
   font-size: var(--display-size);
+  line-height: 1.12;
   letter-spacing: -0.04em;
-      margin-bottom: 18px;
+
+  padding: 0 0.12em 0.03em;
 
   background: rgba(244, 240, 232, 0.82);
-
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
