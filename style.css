@@ -148,14 +148,7 @@ body {
       padding-bottom: 4px;
     }
 
-.hero__panel {
-  max-width: 620px;
-  margin-top: 14px;
-  padding: 18px 22px;
 
-  background: rgba(244, 240, 232, 0.82);
-  backdrop-filter: blur(5px);
-}
 
 .hero__dek {
   margin: 0 0 16px;
