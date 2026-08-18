@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +8,244 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-  <body class="theme-2005">
-  <main class="hero">
-    <div class="hero__inner">
-      <p class="hero__kicker">Part Two</p>
-      <h1 class="hero__title">2005</h1>
-      <p class="hero__dek">Coming soon.</p>
-      <a class="hero__link" href="index.html">← Back to 1995</a>
+<body>
+
+  <section class="reader-feedback">
+    <div class="reader-feedback__inner">
+
+      <p class="reader-feedback__eyebrow">
+        You made it to the end of 1995
+      </p>
+
+      <h2>So, what did you think?</h2>
+
+      <p class="reader-feedback__intro">
+        This is a work in progress, so I'd genuinely love to know.
+        It should only take a minute.
+      </p>
+
+      <form action="https://formspree.io/f/xppaypvo" method="POST">
+
+        <fieldset>
+          <legend>Would you keep reading?</legend>
+
+          <label>
+            <input
+              type="radio"
+              name="keep-reading"
+              value="Definitely"
+              required
+            >
+            Definitely
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="keep-reading"
+              value="Probably"
+            >
+            Probably
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="keep-reading"
+              value="Probably not"
+            >
+            Probably not
+          </label>
+        </fieldset>
+
+
+        <fieldset>
+          <legend>Who did you connect with most?</legend>
+
+          <label>
+            <input
+              type="radio"
+              name="character"
+              value="Nick"
+            >
+            Nick
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="character"
+              value="Zoe"
+            >
+            Zoe
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="character"
+              value="Josh"
+            >
+            Josh
+          </label>
+        </fieldset>
+
+
+        <fieldset>
+          <legend>How did the digital format feel?</legend>
+
+          <label>
+            <input
+              type="radio"
+              name="digital-format"
+              value="Added to it"
+            >
+            Added to it
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="digital-format"
+              value="Neither"
+            >
+            Neither added nor took away
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="digital-format"
+              value="Got in the way"
+            >
+            Got in the way
+          </label>
+        </fieldset>
+
+
+        <label class="reader-feedback__comment">
+
+          <span>Anything else?</span>
+
+          <textarea
+            name="comments"
+            rows="5"
+            placeholder="Good, bad or otherwise..."
+          ></textarea>
+
+        </label>
+
+
+        <input
+          type="hidden"
+          name="section"
+          value="1995"
+        >
+
+
+        <button type="submit">
+          Send feedback
+        </button>
+
+      </form>
+
     </div>
+  </section>
+
+
+  <main class="hero">
+
+    <div class="hero__inner">
+
+      <p class="hero__kicker">
+        Part Two
+      </p>
+
+      <h1 class="hero__title">
+        2005
+      </h1>
+
+      <p class="hero__dek">
+        Coming soon.
+      </p>
+
+      <a
+        class="hero__link"
+        href="index.html"
+      >
+        ← Back to 1995
+      </a>
+
+    </div>
+
   </main>
+
+
+  <script>
+
+    const form = document.querySelector('.reader-feedback form');
+
+    form.addEventListener('submit', async (event) => {
+
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+
+        const response = await fetch(form.action, {
+
+          method: form.method,
+
+          body: formData,
+
+          headers: {
+            'Accept': 'application/json'
+          }
+
+        });
+
+
+        if (response.ok) {
+
+          document.querySelector(
+            '.reader-feedback__inner'
+          ).innerHTML = `
+
+            <p class="reader-feedback__eyebrow">
+              Thanks
+            </p>
+
+            <h2>
+              Thanks for reading.
+            </h2>
+
+            <p class="reader-feedback__intro">
+              Your feedback has been sent.
+            </p>
+
+          `;
+
+        } else {
+
+          alert(
+            'Sorry — something went wrong. Please try again.'
+          );
+
+        }
+
+      } catch (error) {
+
+        alert(
+          'Sorry — something went wrong. Please try again.'
+        );
+
+      }
+
+    });
+
+  </script>
+
 </body>
+
 </html>
