@@ -673,7 +673,7 @@ body {
   height: 12px;
   margin-right: 10px;
   border: 1px solid currentColor;
-  border-radius: 50%;
+  border-radius: 40%;
   background: white;
   vertical-align: -2px;
   cursor: pointer;
