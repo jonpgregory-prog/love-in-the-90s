@@ -665,3 +665,21 @@ body {
 .reader-feedback button:hover {
   opacity: 0.8;
 }
+
+.reader-feedback input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: white;
+  vertical-align: -2px;
+  cursor: pointer;
+}
+
+.reader-feedback input[type="checkbox"]:checked {
+  background:
+    radial-gradient(circle, currentColor 0 35%, white 40% 100%);
+}
